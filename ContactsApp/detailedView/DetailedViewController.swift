@@ -14,13 +14,6 @@ class DetailedViewController: UIViewController {
     
     //MARK: - Protocols delegate
     weak var delegate: PresentedViewControllerDelegate?
-    
-    //MARK: - Variables
-    var callHistory: [Int:[String]] = [
-        1: ["Apr 27, 14:16", "+998901234567", "arrow.up.right", "Didn’t connect"],
-        2: ["Apr 20, 10:35", "+998901234567", "arrow.down.right", "Rang 5 times"],
-        3: ["Mar 05, 19:23", "+998901234567", "arrow.up.right", "Outgoing 15 min 12 sec"]
-    ]
 
     //MARK: - UI components
     private lazy var headerView = DetailedHeaderView()
@@ -45,10 +38,12 @@ class DetailedViewController: UIViewController {
     var nameLabel: TextLabel
     var numberLabel: TextLabel
     var model: Contact
-    init(_ model: Contact) {
+    var callHistory: [[String]]
+    init(_ model: Contact, _ callHistory: [[String]]) {
         self.model = model
         self.nameLabel = TextLabel(22, model.name! + " " + model.surname!)
         self.numberLabel = TextLabel(16, model.number!)
+        self.callHistory = callHistory
         super.init(nibName: nil, bundle: nil)
     }
     

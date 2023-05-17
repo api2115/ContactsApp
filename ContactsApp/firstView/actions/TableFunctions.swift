@@ -41,7 +41,8 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = DetailedViewController(models[indexPath.row])
+        let genarr = randomCallHistoryGen()
+        let vc = DetailedViewController(models[indexPath.row], genarr)
         vc.modalPresentationStyle = .fullScreen
         vc.delegate = self
         self.present(vc, animated: true, completion: nil)
