@@ -19,6 +19,9 @@
 		3B1A1B622A14F42F00BDA9A0 /* EmptyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A1B612A14F42F00BDA9A0 /* EmptyTableView.swift */; };
 		3B1A1B662A15230700BDA9A0 /* RandomCallHistoryGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B1A1B652A15230700BDA9A0 /* RandomCallHistoryGen.swift */; };
 		3B2D7B492A1B5FD600741002 /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7B482A1B5FD600741002 /* ContactsManager.swift */; };
+		3B2D7B4F2A1BA88B00741002 /* FirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7B4E2A1BA88B00741002 /* FirstViewModel.swift */; };
+		3B2D7B522A1C148700741002 /* DetailedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7B512A1C148700741002 /* DetailedViewModel.swift */; };
+		3B2D7B552A1C1BFB00741002 /* AdderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7B542A1C1BFB00741002 /* AdderViewModel.swift */; };
 		3B84F2A32A122FD000A5E6DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B84F2A22A122FD000A5E6DD /* AppDelegate.swift */; };
 		3B84F2A52A122FD000A5E6DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B84F2A42A122FD000A5E6DD /* SceneDelegate.swift */; };
 		3B84F2AD2A122FD000A5E6DD /* ContactsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B84F2AB2A122FD000A5E6DD /* ContactsApp.xcdatamodeld */; };
@@ -57,6 +60,9 @@
 		3B1A1B612A14F42F00BDA9A0 /* EmptyTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyTableView.swift; sourceTree = "<group>"; };
 		3B1A1B652A15230700BDA9A0 /* RandomCallHistoryGen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCallHistoryGen.swift; sourceTree = "<group>"; };
 		3B2D7B482A1B5FD600741002 /* ContactsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsManager.swift; sourceTree = "<group>"; };
+		3B2D7B4E2A1BA88B00741002 /* FirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewModel.swift; sourceTree = "<group>"; };
+		3B2D7B512A1C148700741002 /* DetailedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewModel.swift; sourceTree = "<group>"; };
+		3B2D7B542A1C1BFB00741002 /* AdderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdderViewModel.swift; sourceTree = "<group>"; };
 		3B84F29F2A122FD000A5E6DD /* ContactsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B84F2A22A122FD000A5E6DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B84F2A42A122FD000A5E6DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +129,30 @@
 			path = Actions;
 			sourceTree = "<group>";
 		};
+		3B2D7B4D2A1BA75D00741002 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3B2D7B4E2A1BA88B00741002 /* FirstViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3B2D7B502A1C145C00741002 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3B2D7B512A1C148700741002 /* DetailedViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		3B2D7B532A1C1BE300741002 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				3B2D7B542A1C1BFB00741002 /* AdderViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		3B84F2962A122FD000A5E6DD = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +198,7 @@
 		3B84F2BE2A1232B400A5E6DD /* MainView */ = {
 			isa = PBXGroup;
 			children = (
+				3B2D7B4D2A1BA75D00741002 /* ViewModels */,
 				3B1A1B562A14E61800BDA9A0 /* Actions */,
 				3B84F2C22A1239F200A5E6DD /* UiElements */,
 				3B84F2EB2A126C4700A5E6DD /* ViewController.swift */,
@@ -201,6 +232,7 @@
 		3B84F2F32A127C5A00A5E6DD /* AdderView */ = {
 			isa = PBXGroup;
 			children = (
+				3B2D7B532A1C1BE300741002 /* ViewModels */,
 				3B1A1B5B2A14E94F00BDA9A0 /* Actions */,
 				3B84F2F82A12852700A5E6DD /* UiElements */,
 				3B84F2F42A127C7800A5E6DD /* AdderViewController.swift */,
@@ -231,6 +263,7 @@
 		3B84F3042A1384EF00A5E6DD /* DetailedView */ = {
 			isa = PBXGroup;
 			children = (
+				3B2D7B502A1C145C00741002 /* ViewModels */,
 				3B1A1B5C2A14EB7D00BDA9A0 /* Actions */,
 				3B84F3072A1385CF00A5E6DD /* UiElements */,
 				3B84F3052A13850F00A5E6DD /* DetailedViewController.swift */,
@@ -320,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B2D7B522A1C148700741002 /* DetailedViewModel.swift in Sources */,
 				3B1A1B512A14303500BDA9A0 /* SortDropDown.swift in Sources */,
 				3B84F3112A138FFC00A5E6DD /* TextLabel.swift in Sources */,
 				3B84F30B2A1386A400A5E6DD /* DetailedViewController+actions.swift in Sources */,
@@ -342,8 +376,10 @@
 				3B06703E2A13E1E5001D5C21 /* DataDelegateprotocol.swift in Sources */,
 				3B84F2EE2A126D9900A5E6DD /* TableViewHeadwer.swift in Sources */,
 				3B84F2FA2A12854000A5E6DD /* HeaderView.swift in Sources */,
+				3B2D7B552A1C1BFB00741002 /* AdderViewModel.swift in Sources */,
 				3B84F2A52A122FD000A5E6DD /* SceneDelegate.swift in Sources */,
 				3B84F2FC2A12977700A5E6DD /* InputFiled.swift in Sources */,
+				3B2D7B4F2A1BA88B00741002 /* FirstViewModel.swift in Sources */,
 				3B84F3032A12D52400A5E6DD /* ImageTableViewCell.swift in Sources */,
 				3B1A1B532A14BB8100BDA9A0 /* SearchHeader.swift in Sources */,
 				3B84F2C12A12368D00A5E6DD /* ViewController+actions.swift in Sources */,

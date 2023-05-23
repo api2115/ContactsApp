@@ -16,13 +16,15 @@ extension ViewController: PresentedViewControllerDelegate, SearchFieldDelegate{
     }
     
     func presentedViewControllerDismissed() {
-        getAllItems()
+        self.viewModel.fetchContacts()
+        setUpTableView()
     }
     
     //MARK: - Add Button
     
     @objc func addButtonTap() {
-        let vc = AdderViewController()
+        let vm = AdderViewModel(oldContact: nil)
+        let vc = AdderViewController(viewModel: vm)
         vc.modalPresentationStyle = .fullScreen
         vc.delegate = self
         self.present(vc, animated: true, completion: nil)
@@ -31,12 +33,13 @@ extension ViewController: PresentedViewControllerDelegate, SearchFieldDelegate{
     //MARK: - SearchBar Functions
     
     private func searchContacts(_ text: String) {
-        models = ContactsManager.shared.getAllItems()
+        self.viewModel.fetchContacts()
+        var models = self.viewModel.Contacts
         models = models.filter { person in
             return (person.name ?? "") .lowercased().contains(text.lowercased()) ||
                    (person.surname ?? "") .lowercased().contains(text.lowercased())
         }
-        tableView.reloadData()
+        self.viewModel.setContacts(models)
     }
     
     @objc func showSearchBar() {
@@ -46,7 +49,7 @@ extension ViewController: PresentedViewControllerDelegate, SearchFieldDelegate{
     
     @objc func hideSearchBar() {
         searchHeader.removeFromSuperview()
-        getAllItems()
+        self.viewModel.fetchContacts()
     }
     
     //MARK: - DropDown Functions
@@ -86,13 +89,15 @@ extension ViewController: PresentedViewControllerDelegate, SearchFieldDelegate{
     }
     
     @objc private func sortAZ() {
+        var models = self.viewModel.Contacts
         models.sort {($0.name ?? "").lowercased() < ($1.name ?? "").lowercased()}
-        tableView.reloadData()
+        self.viewModel.setContacts(models)
     }
     
     @objc private func sortZA() {
+        var models = self.viewModel.Contacts
         models.sort {($0.name ?? "").lowercased() > ($1.name ?? "").lowercased()}
-        tableView.reloadData()
+        self.viewModel.setContacts(models)
     }
     
     //MARK: - Alert Functions
@@ -113,20 +118,7 @@ extension ViewController: PresentedViewControllerDelegate, SearchFieldDelegate{
     }
     
     private func performConfirmedAction() {
-        ContactsManager.shared.deleteAllItems()
-        getAllItems()
-        dropDownMenu.removeFromSuperview()
-    }
-    
-    
-    // MARK: - CoreData Functions
-
-    func getAllItems() {
-        models = ContactsManager.shared.getAllItems()
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-        
+        self.viewModel.deleteAllContacts()
         setUpTableView()
     }
     

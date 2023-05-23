@@ -27,7 +27,9 @@ extension DetailedViewController: DataDelegateProtocol {
     //MARK: - EditButton Functions
     
     @objc func handleEdit() {
-        let vc = AdderViewController(oldContact: model, oldName: model.name ?? "name", oldSurname: model.surname ?? "surname", oldNumber: model.number ?? "number")
+        let model = self.viewModel.contact
+        let vm = AdderViewModel(oldContact: model)
+        let vc = AdderViewController(viewModel: vm)
         vc.modalPresentationStyle = .fullScreen
         vc.dataDelegate = self
         self.present(vc, animated: true, completion: nil)
@@ -42,7 +44,7 @@ extension DetailedViewController: DataDelegateProtocol {
     //MARK: - Alert Functions
     
     private func showAlertWithConfirmation() {
-        let alertController = UIAlertController(title: "Delete Contact", message: "Are you sure you want to remove \(model.name ?? "name") \(model.surname ?? "surname") from your contacts?", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Delete Contact", message: "Are you sure you want to remove \(self.viewModel.contact.name ?? "name") \(self.viewModel.contact.surname ?? "surname") from your contacts?", preferredStyle: .alert)
         
         let confirmAction = UIAlertAction(title: "YES", style: .default) { _ in
             self.performConfirmedAction()
@@ -57,7 +59,7 @@ extension DetailedViewController: DataDelegateProtocol {
     }
     
     private func performConfirmedAction() {
-        ContactsManager.shared.deleteItem(item: model)
+        self.viewModel.deleteContact()
         
         dismiss(animated: true) { [weak self] in
             self?.delegate?.presentedViewControllerDismissed()

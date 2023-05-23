@@ -9,6 +9,8 @@ import UIKit
 
 class ImageTableViewCell: UITableViewCell {
     
+    private(set) var contact: Contact!
+    
     // MARK: - UI Components
     lazy var leftImageView = UIImageView()
     lazy var rightImageView = UIImageView()
@@ -17,7 +19,6 @@ class ImageTableViewCell: UITableViewCell {
     // MARK: - Lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupViews()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -26,10 +27,24 @@ class ImageTableViewCell: UITableViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        setupViews()
     }
 
     // MARK: - UI Setup
+    func configure(with contact: Contact){
+        self.contact = contact
+        textLabel?.text = "\(contact.name ?? "") \(contact.surname ?? "")"
+        backgroundColor = UIColor(named: "DefaultColor")
+        textLabel?.textColor = .black
+        textLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        let leftImage = UIImage(named: "ProfileIcon")
+        let rightImage = UIImage(named: "PhoneGreenIcon")
+        leftImageView.image = leftImage
+        rightImageView.image = rightImage
+        subtextLabel.text = contact.number
+        
+        setupViews()
+    }
+    
     private func setupViews() {
         
         contentView.addSubview(leftImageView)

@@ -27,20 +27,14 @@ class AdderViewController: UIViewController {
     let oldSurname: String
     let oldNumber: String
     var oldContact: Contact?
-    //Initializer for edit
-    init(oldContact: Contact?, oldName: String, oldSurname: String, oldNumber: String) {
-        self.oldContact = oldContact
-        self.oldName = oldName
-        self.oldSurname = oldSurname
-        self.oldNumber = oldNumber
-        super.init(nibName: nil, bundle: nil)
-    }
-    //Initializer for add
-    init() {
-        self.oldName = ""
-        self.oldSurname = ""
-        self.oldNumber = ""
-        self.oldContact = nil
+    let viewModel: AdderViewModel
+
+    init(viewModel: AdderViewModel) {
+        self.viewModel = viewModel
+        self.oldContact = self.viewModel.oldContact
+        self.oldName = oldContact?.name ?? ""
+        self.oldSurname = oldContact?.surname ?? ""
+        self.oldNumber = oldContact?.number ?? ""
         super.init(nibName: nil, bundle: nil)
     }
     

@@ -34,12 +34,12 @@ class DetailedViewController: UIViewController {
     //MARK: - Lifecycle
     var nameLabel: TextLabel
     var numberLabel: TextLabel
-    var model: Contact
     var callHistory: [[String]]
-    init(_ model: Contact, _ callHistory: [[String]]) {
-        self.model = model
-        self.nameLabel = TextLabel(22, (model.name ?? "name") + " " + (model.surname ?? "surname"))
-        self.numberLabel = TextLabel(16, model.number ?? "")
+    let viewModel: DetailedViewModel
+    init(_ viewModel: DetailedViewModel, _ callHistory: [[String]]) {
+        self.viewModel = viewModel
+        self.nameLabel = TextLabel(22, (viewModel.contact.name ?? "name") + " " + (viewModel.contact.surname ?? "surname"))
+        self.numberLabel = TextLabel(16, viewModel.contact.number ?? "")
         self.callHistory = callHistory
         super.init(nibName: nil, bundle: nil)
     }

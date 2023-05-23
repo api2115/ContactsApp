@@ -8,10 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    // MARK: - Variables
-    var models = [Contact]()
-    
+        
     // MARK: - UI Components
     lazy var headerView = TableViewHeadwer()
     
@@ -41,18 +38,35 @@ class ViewController: UIViewController {
     lazy var emptyLabel = EmptyTableView()
     
     // MARK: - LifeCycle
+    let viewModel: FirstViewModel
+    init(_ viewModel: FirstViewModel = FirstViewModel() ) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
-        self.getAllItems()
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        self.viewModel.onContactsUpdated = { [weak self] in
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
+        
         searchHeader.searchFieldDelegate = self
         
         self.view.backgroundColor = UIColor(named: "DefaultColor")
         
         setUpButtonsTargets()
+        setUpTableView()
         
     }
     

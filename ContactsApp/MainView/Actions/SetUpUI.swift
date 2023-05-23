@@ -23,7 +23,7 @@ extension ViewController {
     }
     
     func setUpTableView() {
-        if models.isEmpty {
+        if self.viewModel.Contacts.isEmpty {
             addToView(emptyLabel)
             NSLayoutConstraint.activate([
                 emptyLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),

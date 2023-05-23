@@ -91,13 +91,13 @@ extension AdderViewController: UITextFieldDelegate{
     }
     
     @objc private func addButtonTap() {
-        if oldName.isEmpty {
-            ContactsManager.shared.createItem(name: nameInputField.text!, surname: surnameInputField.text!, number: numberInputField.text!)
+        if self.viewModel.oldContact == nil {
+            self.viewModel.addContact(name: nameInputField.text!, surname: surnameInputField.text!, number: numberInputField.text!)
             dismiss(animated: true) { [weak self] in
                 self?.delegate?.presentedViewControllerDismissed()
             }
         } else {
-            let item = ContactsManager.shared.updateItem(item: oldContact!, newName: nameInputField.text!, newSurname: surnameInputField.text!, newNumber: numberInputField.text!)
+            let item = self.viewModel.editContact(name: nameInputField.text!, surname: surnameInputField.text!, number: numberInputField.text!)
             dataDelegate?.passData(data: item)
             self.dismiss(animated: true, completion: nil)
         }

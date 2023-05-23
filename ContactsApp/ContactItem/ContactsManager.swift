@@ -68,7 +68,7 @@ class ContactsManager {
         }
     }
     
-    func deleteAllItems() {
+    func deleteAllItems() -> [Contact] {
         let models = getAllItems()
         for model in models {
             context.delete(model)
@@ -79,6 +79,7 @@ class ContactsManager {
         catch {
             print(error)
         }
+        return []
     }
 
     
