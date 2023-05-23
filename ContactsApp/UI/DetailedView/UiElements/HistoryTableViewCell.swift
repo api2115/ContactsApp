@@ -9,6 +9,8 @@ import UIKit
 
 class HistoryTableViewCell: UITableViewCell {
     
+    private (set) var callHistory: CallHistory!
+    
     //MARK: - UI components
     lazy var subtextLabel = UILabel()
     lazy var arrow = UIImageView()
@@ -17,11 +19,34 @@ class HistoryTableViewCell: UITableViewCell {
     //MARK: - Lifecycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        setupViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    func configure(with callHistory: CallHistory) {
+        self.callHistory = callHistory
+        backgroundColor = .white
+        textLabel?.text = callHistory.date
+        textLabel?.textColor = .black
+        textLabel?.font = UIFont.systemFont(ofSize: 16)
+
+        subtextLabel.text = callHistory.phoneNumber
+
+        let image = UIImage(named: callHistory.icon ?? "")
+        let templateImage = image?.withRenderingMode(.alwaysTemplate)
+        arrow.image = templateImage
+        arrow.tintColor = .gray
+
+        rightLabel.text = callHistory.status
+
+        if callHistory.callType == "missed" {
+            let color = UIColor(named: "RedTextColor")
+            textLabel?.textColor = color
+            arrow.tintColor = color
+        }
+        
         setupViews()
     }
 

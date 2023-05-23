@@ -20,26 +20,8 @@ extension DetailedViewController: UITableViewDelegate, UITableViewDataSource {
     //Cell data function
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HistoryTableViewCell
-        cell.backgroundColor = .white
         let call = callHistory[indexPath.row]
-        cell.textLabel?.text = call.date
-        cell.textLabel?.textColor = .black
-        cell.textLabel?.font = UIFont.systemFont(ofSize: 16)
-
-        cell.subtextLabel.text = call.phoneNumber
-
-        let image = UIImage(named: call.icon ?? "")
-        let templateImage = image?.withRenderingMode(.alwaysTemplate)
-        cell.arrow.image = templateImage
-        cell.arrow.tintColor = .gray
-
-        cell.rightLabel.text = call.status
-
-        if call.callType == "missed" {
-            let color = UIColor(named: "RedTextColor")
-            cell.textLabel?.textColor = color
-            cell.arrow.tintColor = color
-        }
+        cell.configure(with: call)
         
         return cell
     }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension AdderViewController: UITextFieldDelegate{
+extension AddContactViewController: UITextFieldDelegate{
     
     // MARK: - Protocol Functions
     
@@ -20,7 +20,7 @@ extension AdderViewController: UITextFieldDelegate{
             textField.layer.borderColor = UIColor(named: "GreyColor")?.cgColor
         }
     }
-    
+    //Function for cheacking textFields contents
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == numberInputField {
             let newText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
@@ -92,14 +92,13 @@ extension AdderViewController: UITextFieldDelegate{
     
     @objc private func addButtonTap() {
         if self.viewModel.oldContact == nil {
-            let item = self.viewModel.addContact(name: nameInputField.text!, surname: surnameInputField.text!, number: numberInputField.text!)
-            randomCallHistoryGen(item)
+            self.viewModel.input?.onAddContact(nameInputField.text, surnameInputField.text, numberInputField.text)
             dismiss(animated: true) { [weak self] in
                 self?.delegate?.presentedViewControllerDismissed()
             }
         } else {
-            let item = self.viewModel.editContact(name: nameInputField.text!, surname: surnameInputField.text!, number: numberInputField.text!)
-            dataDelegate?.passData(data: item)
+            let item = self.viewModel.input?.onEditContact(nameInputField.text, surnameInputField.text, numberInputField.text)
+            dataDelegate?.passData(data: item!)
             self.dismiss(animated: true, completion: nil)
         }
     }

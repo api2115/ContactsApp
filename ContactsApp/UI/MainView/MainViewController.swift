@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
         
     // MARK: - UI Components
     lazy var headerView = TableViewHeadwer()
@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         let tableView = UITableView()
         tableView.backgroundColor = UIColor(named: "DefaultColor")
         tableView.separatorStyle = .none
-        tableView.register(ImageTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(ContactsTableViewCell.self, forCellReuseIdentifier: "cell")
         return tableView
     }()
 
@@ -38,8 +38,8 @@ class ViewController: UIViewController {
     lazy var emptyLabel = EmptyTableView()
     
     // MARK: - LifeCycle
-    let viewModel: FirstViewModel
-    init(_ viewModel: FirstViewModel = FirstViewModel() ) {
+    let viewModel: MainViewModel
+    init(_ viewModel: MainViewModel = MainViewModel() ) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -55,12 +55,7 @@ class ViewController: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
-        self.viewModel.onContactsUpdated = { [weak self] in
-            DispatchQueue.main.async {
-                self?.tableView.reloadData()
-            }
-        }
-        
+        setUpViewModelOutput()
         searchHeader.searchFieldDelegate = self
         
         self.view.backgroundColor = UIColor(named: "DefaultColor")
@@ -71,6 +66,16 @@ class ViewController: UIViewController {
     }
     
     // MARK: - UI Setup
+    private func setUpViewModelOutput() {
+        self.viewModel.output = .init(
+            onContactsUpdated: { [weak self] in
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            }
+        )
+    }
+    
     private func setupUI() {
 
         addToView(headerView)

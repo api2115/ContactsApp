@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension ViewController: PresentedViewControllerDelegate, SearchFieldDelegate{
+extension MainViewController: PresentedViewControllerDelegate, SearchFieldDelegate{
     
     //MARK: - Protocol Functions
     
@@ -23,8 +23,8 @@ extension ViewController: PresentedViewControllerDelegate, SearchFieldDelegate{
     //MARK: - Add Button
     
     @objc func addButtonTap() {
-        let vm = AdderViewModel(oldContact: nil)
-        let vc = AdderViewController(viewModel: vm)
+        let vm = AddContactViewModel(oldContact: nil)
+        let vc = AddContactViewController(viewModel: vm)
         vc.modalPresentationStyle = .fullScreen
         vc.delegate = self
         self.present(vc, animated: true, completion: nil)
@@ -33,13 +33,7 @@ extension ViewController: PresentedViewControllerDelegate, SearchFieldDelegate{
     //MARK: - SearchBar Functions
     
     private func searchContacts(_ text: String) {
-        self.viewModel.fetchContacts()
-        var models = self.viewModel.Contacts
-        models = models.filter { person in
-            return (person.name ?? "") .lowercased().contains(text.lowercased()) ||
-                   (person.surname ?? "") .lowercased().contains(text.lowercased())
-        }
-        self.viewModel.setContacts(models)
+        self.viewModel.search(text: text)
     }
     
     @objc func showSearchBar() {
@@ -75,7 +69,7 @@ extension ViewController: PresentedViewControllerDelegate, SearchFieldDelegate{
         showAlertWithConfirmation()
     }
     
-    @objc func sortByTap() {
+    @objc func sortOptionsTap() {
         setUpSortDropDown()
         sortDropDown.sortOptionsButton.addTarget(self, action: #selector(backToFirstDropDown), for: .touchUpInside)
         
@@ -89,15 +83,11 @@ extension ViewController: PresentedViewControllerDelegate, SearchFieldDelegate{
     }
     
     @objc private func sortAZ() {
-        var models = self.viewModel.Contacts
-        models.sort {($0.name ?? "").lowercased() < ($1.name ?? "").lowercased()}
-        self.viewModel.setContacts(models)
+        self.viewModel.sort(asc: true)
     }
     
     @objc private func sortZA() {
-        var models = self.viewModel.Contacts
-        models.sort {($0.name ?? "").lowercased() > ($1.name ?? "").lowercased()}
-        self.viewModel.setContacts(models)
+        self.viewModel.sort(asc: false)
     }
     
     //MARK: - Alert Functions

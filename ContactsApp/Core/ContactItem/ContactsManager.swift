@@ -32,11 +32,11 @@ class ContactsManager {
         return models
     }
     
-    func createItem(name: String, surname: String, number: String) -> Contact {
+    func createItem(name: String?, surname: String?, number: String?) -> Contact {
         let item = Contact(context: context)
-        item.name = name
-        item.surname = surname
-        item.number = number
+        item.name = name!
+        item.surname = surname!
+        item.number = number!
         do {
             try context.save()
         }
@@ -46,15 +46,17 @@ class ContactsManager {
         return item
     }
     
-    func updateItem(item: Contact, newName: String, newSurname: String, newNumber: String) -> Contact {
-        item.name = newName
-        item.surname = newSurname
-        item.number = newNumber
-        do {
-            try context.save()
-        }
-        catch {
-            print(error)
+    func updateItem(item: Contact?, newName: String?, newSurname: String?, newNumber: String?) -> Contact? {
+        if let contact = item ?? nil {
+            contact.name = newName!
+            contact.surname = newSurname!
+            contact.number = newNumber!
+            do {
+                try context.save()
+            }
+            catch {
+                print(error)
+            }
         }
         return item
     }

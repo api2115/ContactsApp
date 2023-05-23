@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AdderViewController: UIViewController {
+class AddContactViewController: UIViewController {
 
     //MARK: - Protocols delegate
     weak var delegate: PresentedViewControllerDelegate?
@@ -27,9 +27,9 @@ class AdderViewController: UIViewController {
     let oldSurname: String
     let oldNumber: String
     var oldContact: Contact?
-    let viewModel: AdderViewModel
+    let viewModel: AddContactViewModel
 
-    init(viewModel: AdderViewModel) {
+    init(viewModel: AddContactViewModel) {
         self.viewModel = viewModel
         self.oldContact = self.viewModel.oldContact
         self.oldName = oldContact?.name ?? ""

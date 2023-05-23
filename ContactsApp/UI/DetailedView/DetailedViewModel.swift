@@ -24,10 +24,10 @@ class DetailedViewModel {
     
     // MARK: - Computed Properties
     var getCallHistory: Array<CallHistory> {
-        var callHistorySet = self.contact.callHistory as? Set<CallHistory> ?? []
-        var callHistoryArray = Array(callHistorySet)
+        let callHistorySet = self.contact.callHistory as? Set<CallHistory> ?? []
+        let callHistoryArray = Array(callHistorySet)
         
-        var callHistory = callHistoryArray.sorted { (element1, element2) -> Bool in
+        let callHistory = callHistoryArray.sorted { (element1, element2) -> Bool in
             let formatter = DateFormatter()
             formatter.dateFormat = "MMM dd, HH:mm"
             formatter.locale = Locale(identifier: "en_US_POSIX")

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ImageTableViewCell: UITableViewCell {
+class ContactsTableViewCell: UITableViewCell {
     
     private(set) var contact: Contact!
     

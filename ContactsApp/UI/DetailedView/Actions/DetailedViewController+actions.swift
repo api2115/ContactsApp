@@ -28,8 +28,8 @@ extension DetailedViewController: DataDelegateProtocol {
     
     @objc func handleEdit() {
         let model = self.viewModel.contact
-        let vm = AdderViewModel(oldContact: model)
-        let vc = AdderViewController(viewModel: vm)
+        let vm = AddContactViewModel(oldContact: model)
+        let vc = AddContactViewController(viewModel: vm)
         vc.modalPresentationStyle = .fullScreen
         vc.dataDelegate = self
         self.present(vc, animated: true, completion: nil)

@@ -8,7 +8,7 @@
 import UIKit
 
 // MARK: - TableView Functions
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel.Contacts.count
@@ -21,7 +21,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     //Cell data function
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = self.viewModel.Contacts[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ImageTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ContactsTableViewCell
         cell.configure(with: model)
         return cell
     }

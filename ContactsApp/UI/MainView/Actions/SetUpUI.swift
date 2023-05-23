@@ -7,13 +7,13 @@
 
 import UIKit
 
-extension ViewController {
+extension MainViewController {
     func setUpButtonsTargets() {
         addButton.addTarget(self, action: #selector(addButtonTap), for: .touchUpInside)
         
         headerView.moreOptionsButton.addTarget(self, action: #selector(moreOptionTap), for: .touchUpInside)
         
-        dropDownMenu.sortOptionsButton.addTarget(self, action: #selector(sortByTap), for: .touchUpInside)
+        dropDownMenu.sortOptionsButton.addTarget(self, action: #selector(sortOptionsTap), for: .touchUpInside)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapOutsideDropDown(_:)))
         tapGesture.cancelsTouchesInView = false
