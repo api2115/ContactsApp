@@ -18,8 +18,8 @@ class AdderViewModel {
     }
     
     //MARK: - Methods
-    func addContact(name: String, surname: String, number: String) {
-        ContactsManager.shared.createItem(name: name, surname: surname, number: number)
+    func addContact(name: String, surname: String, number: String) -> Contact {
+        return ContactsManager.shared.createItem(name: name, surname: surname, number: number)
     }
     
     func editContact(name: String, surname: String, number: String) -> Contact {

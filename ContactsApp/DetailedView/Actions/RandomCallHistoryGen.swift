@@ -6,15 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
-func randomCallHistoryGen() -> [[String]] {
+func randomCallHistoryGen(_ contact: Contact) {
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "MMM dd, HH:mm"
     
     let possibleStatusesForMissedCall = ["Didn’t connect", "Rang 5 times", "Voicemail"]
     let possibleStatusesForPickedCall = ["Connected", "Outgoing 15 min 12 sec"]
-    
-    var callHistory: [[String]] = []
     
     let entryCount = Int.random(in: 2...10)
     
@@ -32,10 +32,21 @@ func randomCallHistoryGen() -> [[String]] {
             status = possibleStatusesForPickedCall.randomElement() ?? ""
             icon = "CallUpArrowIcon"
         }
-        
-        callHistory.append([date, phoneNumber, icon, status, callType])
+        let call = CallHistory(context: context)
+        call.date = date
+        call.phoneNumber = phoneNumber
+        call.icon = icon
+        call.status = status
+        call.callType = callType
+        call.contact = contact
     }
-    return callHistory
+    do {
+        try context.save()
+    }
+    catch {
+        print(error)
+    }
+
 }
 
 private func generateRandomDate() -> String {

@@ -27,10 +27,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let genarr = randomCallHistoryGen()
         let contact = self.viewModel.Contacts[indexPath.row]
         let vm = DetailedViewModel(contact)
-        let vc = DetailedViewController(vm, genarr)
+        let vc = DetailedViewController(vm)
         vc.modalPresentationStyle = .fullScreen
         vc.delegate = self
         self.present(vc, animated: true, completion: nil)

@@ -22,4 +22,23 @@ class DetailedViewModel {
         ContactsManager.shared.deleteItem(item: self.contact)
     }
     
+    // MARK: - Computed Properties
+    var getCallHistory: Array<CallHistory> {
+        var callHistorySet = self.contact.callHistory as? Set<CallHistory> ?? []
+        var callHistoryArray = Array(callHistorySet)
+        
+        var callHistory = callHistoryArray.sorted { (element1, element2) -> Bool in
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMM dd, HH:mm"
+            formatter.locale = Locale(identifier: "en_US_POSIX")
+            if let date1 = formatter.date(from: element1.date ?? ""),
+               let date2 = formatter.date(from: element2.date ?? "") {
+                return date1 < date2
+            }
+            return false
+        }
+        
+        return callHistory
+    }
+    
 }

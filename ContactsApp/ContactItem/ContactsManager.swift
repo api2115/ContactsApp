@@ -32,7 +32,7 @@ class ContactsManager {
         return models
     }
     
-    func createItem(name: String, surname: String, number: String) {
+    func createItem(name: String, surname: String, number: String) -> Contact {
         let item = Contact(context: context)
         item.name = name
         item.surname = surname
@@ -43,6 +43,7 @@ class ContactsManager {
         catch {
             print(error)
         }
+        return item
     }
     
     func updateItem(item: Contact, newName: String, newSurname: String, newNumber: String) -> Contact {

@@ -22,13 +22,15 @@
 		3B2D7B4F2A1BA88B00741002 /* FirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7B4E2A1BA88B00741002 /* FirstViewModel.swift */; };
 		3B2D7B522A1C148700741002 /* DetailedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7B512A1C148700741002 /* DetailedViewModel.swift */; };
 		3B2D7B552A1C1BFB00741002 /* AdderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7B542A1C1BFB00741002 /* AdderViewModel.swift */; };
+		3B2D7B5B2A1CAFCE00741002 /* Contact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7B572A1CAFCE00741002 /* Contact+CoreDataClass.swift */; };
+		3B2D7B5C2A1CAFCE00741002 /* Contact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7B582A1CAFCE00741002 /* Contact+CoreDataProperties.swift */; };
+		3B2D7B5D2A1CAFCE00741002 /* CallHistory+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7B592A1CAFCE00741002 /* CallHistory+CoreDataClass.swift */; };
+		3B2D7B5E2A1CAFCE00741002 /* CallHistory+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2D7B5A2A1CAFCE00741002 /* CallHistory+CoreDataProperties.swift */; };
 		3B84F2A32A122FD000A5E6DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B84F2A22A122FD000A5E6DD /* AppDelegate.swift */; };
 		3B84F2A52A122FD000A5E6DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B84F2A42A122FD000A5E6DD /* SceneDelegate.swift */; };
 		3B84F2AD2A122FD000A5E6DD /* ContactsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B84F2AB2A122FD000A5E6DD /* ContactsApp.xcdatamodeld */; };
 		3B84F2AF2A122FD100A5E6DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B84F2AE2A122FD100A5E6DD /* Assets.xcassets */; };
 		3B84F2B22A122FD100A5E6DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B84F2B02A122FD100A5E6DD /* LaunchScreen.storyboard */; };
-		3B84F2BB2A12326B00A5E6DD /* Contact+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B84F2B92A12326A00A5E6DD /* Contact+CoreDataClass.swift */; };
-		3B84F2BC2A12326B00A5E6DD /* Contact+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B84F2BA2A12326B00A5E6DD /* Contact+CoreDataProperties.swift */; };
 		3B84F2C12A12368D00A5E6DD /* ViewController+actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B84F2C02A12368D00A5E6DD /* ViewController+actions.swift */; };
 		3B84F2EC2A126C4700A5E6DD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B84F2EB2A126C4700A5E6DD /* ViewController.swift */; };
 		3B84F2EE2A126D9900A5E6DD /* TableViewHeadwer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B84F2ED2A126D9900A5E6DD /* TableViewHeadwer.swift */; };
@@ -63,6 +65,11 @@
 		3B2D7B4E2A1BA88B00741002 /* FirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewModel.swift; sourceTree = "<group>"; };
 		3B2D7B512A1C148700741002 /* DetailedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedViewModel.swift; sourceTree = "<group>"; };
 		3B2D7B542A1C1BFB00741002 /* AdderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdderViewModel.swift; sourceTree = "<group>"; };
+		3B2D7B562A1CAC4B00741002 /* ContactsApp 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "ContactsApp 2.xcdatamodel"; sourceTree = "<group>"; };
+		3B2D7B572A1CAFCE00741002 /* Contact+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3B2D7B582A1CAFCE00741002 /* Contact+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3B2D7B592A1CAFCE00741002 /* CallHistory+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CallHistory+CoreDataClass.swift"; sourceTree = "<group>"; };
+		3B2D7B5A2A1CAFCE00741002 /* CallHistory+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CallHistory+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3B84F29F2A122FD000A5E6DD /* ContactsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B84F2A22A122FD000A5E6DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3B84F2A42A122FD000A5E6DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,8 +77,6 @@
 		3B84F2AE2A122FD100A5E6DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3B84F2B12A122FD100A5E6DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3B84F2B32A122FD100A5E6DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3B84F2B92A12326A00A5E6DD /* Contact+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataClass.swift"; sourceTree = "<group>"; };
-		3B84F2BA2A12326B00A5E6DD /* Contact+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contact+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3B84F2C02A12368D00A5E6DD /* ViewController+actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+actions.swift"; sourceTree = "<group>"; };
 		3B84F2EB2A126C4700A5E6DD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3B84F2ED2A126D9900A5E6DD /* TableViewHeadwer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeadwer.swift; sourceTree = "<group>"; };
@@ -209,8 +214,10 @@
 		3B84F2BF2A12339600A5E6DD /* ContactItem */ = {
 			isa = PBXGroup;
 			children = (
-				3B84F2B92A12326A00A5E6DD /* Contact+CoreDataClass.swift */,
-				3B84F2BA2A12326B00A5E6DD /* Contact+CoreDataProperties.swift */,
+				3B2D7B572A1CAFCE00741002 /* Contact+CoreDataClass.swift */,
+				3B2D7B582A1CAFCE00741002 /* Contact+CoreDataProperties.swift */,
+				3B2D7B592A1CAFCE00741002 /* CallHistory+CoreDataClass.swift */,
+				3B2D7B5A2A1CAFCE00741002 /* CallHistory+CoreDataProperties.swift */,
 				3B2D7B482A1B5FD600741002 /* ContactsManager.swift */,
 			);
 			path = ContactItem;
@@ -355,6 +362,7 @@
 			files = (
 				3B2D7B522A1C148700741002 /* DetailedViewModel.swift in Sources */,
 				3B1A1B512A14303500BDA9A0 /* SortDropDown.swift in Sources */,
+				3B2D7B5E2A1CAFCE00741002 /* CallHistory+CoreDataProperties.swift in Sources */,
 				3B84F3112A138FFC00A5E6DD /* TextLabel.swift in Sources */,
 				3B84F30B2A1386A400A5E6DD /* DetailedViewController+actions.swift in Sources */,
 				3B84F2FE2A129EED00A5E6DD /* TextFieldNameLabel.swift in Sources */,
@@ -364,8 +372,8 @@
 				3B84F2F52A127C7800A5E6DD /* AdderViewController.swift in Sources */,
 				3B1A1B552A14D42600BDA9A0 /* SearchFieldDelegate.swift in Sources */,
 				3B84F2EC2A126C4700A5E6DD /* ViewController.swift in Sources */,
-				3B84F2BC2A12326B00A5E6DD /* Contact+CoreDataProperties.swift in Sources */,
 				3B84F3092A1385E000A5E6DD /* DetailedHeaderView.swift in Sources */,
+				3B2D7B5C2A1CAFCE00741002 /* Contact+CoreDataProperties.swift in Sources */,
 				3B1A1B602A14ECAB00BDA9A0 /* CallHistoryTableFunctions.swift in Sources */,
 				3B84F3152A13AC3300A5E6DD /* HistoryTableViewCell.swift in Sources */,
 				3B84F2F72A1284BE00A5E6DD /* AdderViewController+Actions.swift in Sources */,
@@ -375,6 +383,7 @@
 				3B84F2A32A122FD000A5E6DD /* AppDelegate.swift in Sources */,
 				3B06703E2A13E1E5001D5C21 /* DataDelegateprotocol.swift in Sources */,
 				3B84F2EE2A126D9900A5E6DD /* TableViewHeadwer.swift in Sources */,
+				3B2D7B5D2A1CAFCE00741002 /* CallHistory+CoreDataClass.swift in Sources */,
 				3B84F2FA2A12854000A5E6DD /* HeaderView.swift in Sources */,
 				3B2D7B552A1C1BFB00741002 /* AdderViewModel.swift in Sources */,
 				3B84F2A52A122FD000A5E6DD /* SceneDelegate.swift in Sources */,
@@ -383,7 +392,7 @@
 				3B84F3032A12D52400A5E6DD /* ImageTableViewCell.swift in Sources */,
 				3B1A1B532A14BB8100BDA9A0 /* SearchHeader.swift in Sources */,
 				3B84F2C12A12368D00A5E6DD /* ViewController+actions.swift in Sources */,
-				3B84F2BB2A12326B00A5E6DD /* Contact+CoreDataClass.swift in Sources */,
+				3B2D7B5B2A1CAFCE00741002 /* Contact+CoreDataClass.swift in Sources */,
 				3B1A1B622A14F42F00BDA9A0 /* EmptyTableView.swift in Sources */,
 				3B1A1B4F2A141F0100BDA9A0 /* DropDownMenu.swift in Sources */,
 				3B1A1B662A15230700BDA9A0 /* RandomCallHistoryGen.swift in Sources */,
@@ -601,9 +610,10 @@
 		3B84F2AB2A122FD000A5E6DD /* ContactsApp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				3B2D7B562A1CAC4B00741002 /* ContactsApp 2.xcdatamodel */,
 				3B84F2AC2A122FD000A5E6DD /* ContactsApp.xcdatamodel */,
 			);
-			currentVersion = 3B84F2AC2A122FD000A5E6DD /* ContactsApp.xcdatamodel */;
+			currentVersion = 3B2D7B562A1CAC4B00741002 /* ContactsApp 2.xcdatamodel */;
 			path = ContactsApp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

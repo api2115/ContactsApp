@@ -34,13 +34,13 @@ class DetailedViewController: UIViewController {
     //MARK: - Lifecycle
     var nameLabel: TextLabel
     var numberLabel: TextLabel
-    var callHistory: [[String]]
+    var callHistory: Array<CallHistory>
     let viewModel: DetailedViewModel
-    init(_ viewModel: DetailedViewModel, _ callHistory: [[String]]) {
+    init(_ viewModel: DetailedViewModel) {
         self.viewModel = viewModel
         self.nameLabel = TextLabel(22, (viewModel.contact.name ?? "name") + " " + (viewModel.contact.surname ?? "surname"))
         self.numberLabel = TextLabel(16, viewModel.contact.number ?? "")
-        self.callHistory = callHistory
+        self.callHistory = self.viewModel.getCallHistory
         super.init(nibName: nil, bundle: nil)
     }
     

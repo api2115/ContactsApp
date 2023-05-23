@@ -92,7 +92,8 @@ extension AdderViewController: UITextFieldDelegate{
     
     @objc private func addButtonTap() {
         if self.viewModel.oldContact == nil {
-            self.viewModel.addContact(name: nameInputField.text!, surname: surnameInputField.text!, number: numberInputField.text!)
+            let item = self.viewModel.addContact(name: nameInputField.text!, surname: surnameInputField.text!, number: numberInputField.text!)
+            randomCallHistoryGen(item)
             dismiss(animated: true) { [weak self] in
                 self?.delegate?.presentedViewControllerDismissed()
             }
